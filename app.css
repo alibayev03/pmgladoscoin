@@ -1,0 +1,521 @@
+:root {
+    --color-highlight: #4D7EA8;
+    --color-green-dark: #8bc05d;
+    --color-yellow-dark: #ffdd57;
+    --color-red-dark: #db4552;
+    --color-white: #ffffff;
+}
+
+.click-area {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 0px;
+    overflow: hidden;
+    position: relative;
+    background: url('/assets/img/main_coin_1.png') no-repeat center center;
+    background-size: cover;
+    outline: none;
+    transition: transform 0.025s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+.click-area:active {
+    transform: scale(0.95);
+}
+
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.footer-bar-6 .active-nav em {
+    background-image: none !important;
+}
+
+.mactive {
+    border-bottom: 4px solid var(--color-highlight);
+    border-radius: 12px;
+  
+}
+
+#game-area {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin-bottom: -110px;
+}
+
+.item {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+}
+
+.scoreboard {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.endgame-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.endgame-message h1 {
+    font-size: 36px;
+    margin: 20px 0;
+    color: var(--color-white);
+}
+
+.endgame-message button {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: var(--color-green-dark);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none;
+}
+
+.freeze-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 255, 0.1), rgba(0, 0, 255, 0.4));
+    z-index: 500;
+    pointer-events: none;
+    display: none;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes pulse-bg {
+    0% {
+        background-color: rgba(100, 210, 255, 0.3);
+    }
+    50% {
+        background-color: rgba(100, 210, 255, 0.6);
+    }
+    100% {
+        background-color: rgba(100, 210, 255, 0.3);
+    }
+}
+
+.pulse-bg {
+    animation: pulse-bg 0.5s infinite;
+}
+
+@keyframes flash-red {
+    0% {
+        background-color: rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        background-color: rgba(255, 0, 0, 0);
+    }
+}
+
+.flash-red {
+    animation: flash-red 0.5s ease-out;
+}
+
+@keyframes flash-green {
+    0% {
+        background-color: rgba(50, 255, 50, 0.5);
+    }
+    100% {
+        background-color: rgba(50, 255, 50, 0);
+    }
+}
+
+.flash-green {
+    animation: flash-green 0.5s ease-out;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.coin {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: fall 1s linear;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+}
+
+.float-up {
+    position: absolute;
+    font-size: 36px;
+    color: var(--color-white);
+    animation: float-up 1s ease-out;
+    pointer-events: none;
+    font-weight: 600;
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+.item.enlarged {
+    width: 75px;
+    height: 75px;
+}
+
+.card-game .content[disabled],
+.card-gift .content[disabled] {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.booster-card img {
+    margin-bottom: 6px;
+}
+
+.booster-card {
+    color: #333 !important;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.swal2-popup {
+    font-size: 100% !important;
+}
+
+#fireworksCanvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+/* strings css format */
+/* 
+.page-content .content .content-back {
+    background: var(--color-gamebar);
+} */
+.page-content .row{
+    padding-left: 17px;
+    padding-right: 17px;
+    margin-bottom: 10px;
+
+}
+.page-content .card-game {
+    background-color: #948599;
+    color: white;
+    border-radius: 10px;
+    height: 150%;
+    margin-bottom: 20px;
+
+}
+
+
+.page-content .card-gift {
+    background-color: #4D7EA8; /* Зеленый фон */
+    color: white; /* Белый текст */
+    border-radius: 10px; /* Закругленные углы */
+    height: 50px;
+    margin-bottom: 10px;
+    margin-left: 17px;
+    margin-right: 17px;
+}
+
+.page-content .card-game .col-9, .card-gift .col-8 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.page-content .card-game .col-3, .card-gift .col-4 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.page-content .fa-ticket {
+    color: white; /* Цвет иконки белый */
+}
+
+/* Animations */
+
+.page-content .card-game:hover, .page-content .card-gift:hover, .btn-modal:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.page-content .card-game.active, .page-content .card-gift.active , .card-gift.active{
+    animation: pulse 1s infinite;
+    transform: scale(1.05);
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.page-content .card-game .col-9, .page-content .card-gift .col-8, 
+.page-content .card-game .col-3, .page-content .card-gift .col-4 {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.page-content .fa-ticket:hover {
+    animation: spin 0.6s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+/* personal nav */
+
+
+
+
+#footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(#ffffff,#A1B1CE);
+    /* Creates a transparent gradient background with darker tint at the bottom */
+    backdrop-filter: blur(5px); /* Optional, for a blurred effect */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 10;
+}
+
+#footer-bar a {
+    color: #40698C;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    flex: 1;
+}
+
+#footer-bar a.active-nav {
+    color: #40698C; /* Icon color */
+}
+
+#footer-bar a span {
+    color: #ffffff; /* Text color */
+}
+
+#footer-bar a i {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.page-content .content-back{
+    background-color: #666666;
+}
+#footer-bar a:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    /* color: var(--color-highlight); */
+    color: #40698C; /* Icon color */
+}
+
+#footer-bar a i:hover {
+    animation: bounce 0.5s ease-in-out;
+}
+.active-nav {
+    border-bottom: 2px solid gray; /* Changes the underline color to gray */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#footer-bar a.active-nav {
+    animation: pulse-highlight 1s infinite;
+    /* color: var(--color-highlight); */
+        color: #4D7EA8; /* Icon color */
+}
+
+@keyframes pulse-highlight {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#footer-bar {
+    animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#footer-bar a i:active {
+    animation: spin 0.5s linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    background-color: #B6C2D9 !important;
+}
+
+/* .content-back{
+    background-color: #B5B7BA !important;
+    border-radius: 10px;
+    margin-left: 17px;
+    margin-right: 17px;
+} */
+
+.btn-modal{
+    background-color: #4D7EA8; /* Зеленый фон */
+    color: white; /* Белый текст */
+    border-radius: 10px; /* Закругленные углы */
+    height: 50px;
+    margin-bottom: 10px;
+    margin-left: 17px;
+    margin-right: 17px;
+}
